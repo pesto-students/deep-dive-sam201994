@@ -1,12 +1,18 @@
-import React from 'react';
-import styles from './bounce.module.css';
+import { animate, makeEaseOut, bounceTiming, quad } from '../animate';
 
-const Bounce = (props) => { 
-  return(
-    <>
-    <div className={styles.bounce}>bounce Component</div>
-    </>
-  )
+class bounce {
+  constructor(el, config = {}) {
+    let height = el.clientHeight;
+    // let width = el.clientWidth;
+    animate({
+      duration: 2000,
+      timing: makeEaseOut(bounceTiming),
+      draw: function(progress) {
+        console.log(progress);
+        el.style.top = height * progress + 'px';
+      }
+    });
+  }
 }
 
-export  { Bounce };
+export default bounce;
