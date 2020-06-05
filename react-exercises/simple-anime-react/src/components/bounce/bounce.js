@@ -1,14 +1,16 @@
-import { animate, makeEaseOut, bounceTiming, quad } from '../animate';
+import { animate, makeEaseOut, bounceTimer } from '../animate';
 
 class bounce {
-  constructor(el, config = {}) {
-    let height = el.clientHeight;
-    // let width = el.clientWidth;
+  constructor(el, config) {
+
+    const height = config.height;
+    const reverse = config.reverse;
+    const duration = config.duration
+
     animate({
-      duration: 2000,
-      timing: makeEaseOut(bounceTiming),
-      draw: function(progress) {
-        console.log(progress);
+      duration: duration,
+      timing: reverse ? bounceTimer: makeEaseOut(bounceTimer),
+      draw: (progress) => {
         el.style.top = height * progress + 'px';
       }
     });
