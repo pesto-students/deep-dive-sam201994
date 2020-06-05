@@ -1,2 +1,3 @@
-export { Bounce } from './bounce/bounce';
-export { Pulse } from './pulse/pulse';
+import Bounce  from './bounce/bounce.component';
+
+export { Bounce}
