@@ -13,7 +13,6 @@ class bounce {
       duration: duration,
       timing: easeEffect === 'out' ? makeEaseOut(bounceTimer): bounceTimer,
       draw: (progress) => {
-        console.log(progress)
         if(movement === 'down'){
           el.style.top = height * progress + 'px';
         }
