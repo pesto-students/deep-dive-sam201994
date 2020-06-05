@@ -11,10 +11,8 @@ import React, {Component} from 'react';
 
 const styles = {
   container: {
-    position: 'absolute',
     left: 0,
     right: 0,
-    alignItems: 'center',
   },
   pulse: {
     position: 'absolute',
@@ -61,7 +59,7 @@ export default class Pulse extends Component {
   mounted = true;
 
   startAnimation = speed => {
-    let last = 0; // timestamp of the last render() call
+    let last = 0;
     const context = this;
     function animate(now) {
       if (!last || now - last >= speed) {
@@ -73,26 +71,26 @@ export default class Pulse extends Component {
     requestAnimationFrame(animate);
   };
 
-  loadPulses = (index, duration) => {
-    let last = 0; // timestamp of the last render() call
+  loadPulses = (numPulses, duration) => {
+    let last = 0;
+    let count = 0;
     const context = this;
     function animate(now) {
-      if (!last || now - last >= duration) {
+      if (!last || now - last >= count*duration) {
         last = now;
-        context.createPulse(index);
+        count = count + 1
+        context.createPulse(count);
       }
-      requestAnimationFrame(animate);
+      if(count < numPulses)
+        requestAnimationFrame(animate);
     }
     requestAnimationFrame(animate);
   };
 
   componentDidMount() {
     const {numPulses, duration, speed} = this.state;
-
     this.setState({started: true});
-    Array.from(Array(numPulses)).forEach((x, i) => {
-      this.loadPulses(i, duration);
-    });
+    this.loadPulses(numPulses, duration)
     this.startAnimation(speed);
   }
 
