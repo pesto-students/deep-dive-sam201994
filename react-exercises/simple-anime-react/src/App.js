@@ -7,9 +7,11 @@ import { Bounce } from './components';
 function App() {
   return (
     <div className="App">
-      <Bounce config={{ reverse: false }}>
-        <div style={{ color: 'green', height: 200, width: 300 }}>Bounce</div>
-      </Bounce>
+      <div style={{ height: 300, width: 300, marginLeft: 300, marginTop: 300 }}>
+        <Bounce config={{ easeEffect: 'out', movement: 'up' }}>
+          <div style={{ color: 'green', height: 200, width: 200 }}>Bounce</div>
+        </Bounce>
+      </div>
     </div>
   );
 }

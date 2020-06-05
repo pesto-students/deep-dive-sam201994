@@ -7,9 +7,8 @@ class Bounce extends Component {
     defaultConfig: {
       duration: 2000,
       background: 'red',
-      height: 100,
-      width: 100,
-      reverse: false
+      easeEffect: 'out',
+      movement: 'down'
     }
   };
 
