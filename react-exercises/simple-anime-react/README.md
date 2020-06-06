@@ -4,6 +4,7 @@ Create a simple animation library that have the following things. Expose the API
 
 - Bounce
 - FadeIn and Out with easing effects
+
 - Slide up to limit and come back to original location
 - Pulse
 

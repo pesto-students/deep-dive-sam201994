@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import bounce from './bounce';
+import fade from './fade';
 
-class Bounce extends Component {
+class FadeIn extends Component {
   static defaultProps = {
-    bounce: bounce,
+    fade: fade,
     defaultConfig: {
       duration: 2000,
-      background: 'red',
-      easeEffect: 'out',
-      movement: 'down'
+      easeEffect: 'in'
     }
   };
 
@@ -26,12 +24,11 @@ class Bounce extends Component {
   componentWillUnmount() {}
 
   startAnimation() {
-    return new bounce(this.rootNode, this.getConfig());
+    return new fade(this.rootNode, this.getConfig());
   }
 
   getConfig() {
     const config = { ...this.props.defaultConfig, ...this.props.config, ...this.props.style };
-    console.log(config);
     return config;
   }
 
@@ -48,4 +45,4 @@ class Bounce extends Component {
   }
 }
 
-export default Bounce;
+export default FadeIn;
