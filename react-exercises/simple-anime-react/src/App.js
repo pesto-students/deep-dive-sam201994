@@ -1,8 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-import { Bounce, FadeIn, FadeOut } from './components';
+import { Bounce, FadeIn, FadeOut, Pulse } from './components';
 
 function App() {
   return (
@@ -20,6 +19,9 @@ function App() {
         <Bounce config={{ easeEffect: 'out', movement: 'up' }}>
           <div style={{ color: 'green', height: 200, width: 200 }}>Bounce</div>
         </Bounce>
+      </div>
+      <div>
+        <Pulse color={"red"} diameter={80}  speed={40} />
       </div>
     </div>
   );
