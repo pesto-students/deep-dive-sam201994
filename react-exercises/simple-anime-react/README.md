@@ -8,6 +8,7 @@ Create a simple animation library that have the following things. Expose the API
 - Slide up to limit and come back to original location
 - Pulse
 
+
 You can make your own API names. You can use either CSS to animate, or JavaScript such as `requestAnimationFrame`. Either is fine.
 
 ## Prior Art

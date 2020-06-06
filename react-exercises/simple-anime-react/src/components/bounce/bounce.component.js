@@ -6,7 +6,6 @@ class Bounce extends Component {
     bounce: bounce,
     defaultConfig: {
       duration: 2000,
-      background: 'red',
       easeEffect: 'out',
       movement: 'down'
     }
@@ -21,12 +20,14 @@ class Bounce extends Component {
     this.startAnimation();
   }
 
-  componentDidUpdate(prevProps, prevState) {}
+  componentDidUpdate(prevProps, prevState) {
+    this.startAnimation();
+  }
 
   componentWillUnmount() {}
 
   startAnimation() {
-    return new bounce(this.rootNode, this.getConfig());
+    this._animation = new bounce(this.rootNode, this.getConfig());
   }
 
   getConfig() {

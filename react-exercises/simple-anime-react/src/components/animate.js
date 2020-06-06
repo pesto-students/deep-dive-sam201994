@@ -14,15 +14,15 @@ function animate(options) {
 }
 
 function makeEaseOut(timer) {
-  return function(timeFraction) {
+  return (timeFraction) => {
     return 1 - timer(1 - timeFraction);
   };
 }
 
 function bounceTimer(timeFraction) {
-  for (let a = 0, b = 1; 1; a += b, b /= 2) {
-    if (timeFraction >= (7 - 4 * a) / 11) {
-      return -Math.pow((11 - 6 * a - 11 * timeFraction) / 4, 2) + Math.pow(b, 2);
+  for (let cofficientA = 0, cofficientB = 1; 1; cofficientA += cofficientB, cofficientB /= 2) {
+    if (timeFraction >= (7 - 4 * cofficientA) / 11) {
+      return -Math.pow((11 - 6 * cofficientA - 11 * timeFraction) / 4, 2) + Math.pow(cofficientB, 2);
     }
   }
 }

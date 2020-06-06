@@ -19,7 +19,9 @@ class FadeIn extends Component {
     this.startAnimation();
   }
 
-  componentDidUpdate(prevProps, prevState) {}
+  componentDidUpdate(prevProps, prevState) {
+    this.startAnimation();
+  }
 
   componentWillUnmount() {}
 

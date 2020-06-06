@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import pulse from './pulse';
+import slide from './slide';
 
-class Pulse extends Component {
+class Slide extends Component {
   static defaultProps = {
-    pulse: pulse,
+    slide: slide,
     defaultConfig: {
       duration: 2000,
-      scalingFactor: 2
+      distance: 100,
+      movement: 'up'
     }
   };
 
@@ -26,7 +27,7 @@ class Pulse extends Component {
   componentWillUnmount() {}
 
   startAnimation() {
-    this._animation = new pulse(this.rootNode, this.getConfig());
+    return new slide(this.rootNode, this.getConfig());
   }
 
   getConfig() {
@@ -48,4 +49,4 @@ class Pulse extends Component {
   }
 }
 
-export default Pulse;
+export default Slide;
